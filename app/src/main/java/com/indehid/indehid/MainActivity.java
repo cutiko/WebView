@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView root;
     private ProgressDialog progressDialog;
-    private static final String URL = "https://www.google.cl/";
+    private static final String URL = "https://www.youtube.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void setWebview(){
+        root.canGoBack();
         root.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
@@ -45,5 +46,8 @@ public class MainActivity extends AppCompatActivity {
         root.loadUrl(URL);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        root.goBack();
+    }
 }
